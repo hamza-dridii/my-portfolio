@@ -1,138 +1,224 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CV - Hamza DRIDI</title>
-  <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(135deg, #4CAF50, #2E7D32);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header h1 {font-size: 2.5rem;}
-    header p {margin-top: 8px;}
-    section {
-      max-width: 900px;
-      margin: 20px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    section h2 {
-      color: #4CAF50;
-      border-bottom: 2px solid #4CAF50;
-      margin-bottom: 10px;
-      padding-bottom: 5px;
-    }
-    ul {list-style: none; margin: 10px 0;}
-    li {margin: 5px 0;}
-    strong {color: #2E7D32;}
-    .project, .formation, .langue {
-      border-left: 5px solid #4CAF50;
-      padding-left: 10px;
-      margin: 10px 0;
-    }
-    a {color: #4CAF50; text-decoration: none;}
-    a:hover {text-decoration: underline;}
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BI Portfolio - Hamza DRIDI</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            background: #f4f4f4;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 900px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            display: inline-block;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        /* Skills Section */
+        #skills ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #skills li {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        #skills li strong {
+            color: #4CAF50;
+        }
+
+        /* Projects Section */
+        .project {
+            border-left: 5px solid #4CAF50;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .project h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            margin-bottom: 8px;
+        }
+
+        .project a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        #contact a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 15px;
+            }
+
+            #skills li {
+                font-size: 0.9rem;
+            }
+
+            .project h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>HAMZA DRIDI</h1>
-  <p>DIPLÔMÉ EN INFORMATIQUE DE GESTION - BUSINESS INTELLIGENCE</p>
-</header>
+    <header>
+        <h1>HAMZA DRIDI - My BI Portfolio</h1>
+        <p>DIPLÔMÉ EN INFORMATIQUE DE GESTION - BI</p>
+    </header>
 
-<section>
-  <h2>Profil</h2>
-  <p>
-    Passionné par les systèmes d'information et l'analyse décisionnelle, je mets à profit mes compétences en développement web, gestion de bases de données et visualisation des données pour concevoir des solutions performantes et adaptées aux besoins métiers.
-  </p>
-</section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Diplômé en Informatique de Gestion spécialité Business Intelligence, je mets à profit mes compétences,
+            mon sérieux et ma curiosité pour relever des défis et innover. Rigoureux et motivé, j’adopte une approche proactive pour apprendre et m’adapter aux exigences professionnelles
+        </p>
+    </section>
 
-<section>
-  <h2>Compétences</h2>
-  <ul>
-    <li><strong>Programmation :</strong> Python, C, Java</li>
-    <li><strong>Développement Web :</strong> HTML, CSS, Bootstrap, JavaScript, PHP, Node.js, ReactJS, Angular, MongoDB</li>
-    <li><strong>Manipulation et Visualisation de Données :</strong> Power BI, Pandas, Web Scraping, phpMyAdmin</li>
-    <li><strong>Gestion de projet :</strong> Agile (SCRUM), Planification, Analyse des risques</li>
-  </ul>
-</section>
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li><strong>Programmation:</strong> Python, C, Java</li>
+            <li><strong>Développement web:</strong> HTML, CSS, Bootstrap, JS, PHP, Node.js, ReactJS , Angular, MongoDB</li>
+         <!--    <li><strong>ETL Tools:</strong> Talend, SSIS</li> -->
+            <li><strong>Manipulation des données:</strong> Visualisation, Intégration et Transformation des données, Pandas, Web Scraping</li>
+            <li><strong>Gestion de projet:</strong> Agile, Planification, Analyse des risques</li>
+        </ul>
+    </section>
 
-<section>
-  <h2>Formations</h2>
-  <div class="formation">
-    <strong>Licence en Informatique de Gestion - Business Intelligence</strong><br/>
-    ISG Sousse — 2019 - 2025
-  </div>
-  <div class="formation">
-    <strong>Baccalauréat Économie et Gestion</strong><br/>
-    Lycée Bourguiba Monastir — 2019
-  </div>
-</section>
+    <section id="projects">
+        <h2>Projects</h2>
 
-<section>
-  <h2>Projets Académiques</h2>
+        <div class="project">
+            <h3>Conception et Développement d'une Application Web</h3>
+            <p><strong>Description:</strong> Développement d'une application web de gestion des réservations d'agence de voyages.</p>
+            <p><strong>Skills Used:</strong> PHP, JavaScript, HTML, CSS, MySQL</p>
+           <!--  <a href="https://github.com/hamza-dridii/hamza_dridii.git" target="_blank">View Project</a> -->
+        </div>
 
-  <div class="project">
-    <strong>Système de Gestion de Stock et de Commandes — PFE</strong><br/>
-    Application web de gestion des commandes clients, produits, packs et génération de bons de livraison avec tableaux de bord.
-    <br/><em>ReactJS, Node.js, MongoDB, jsPDF</em>
-  </div>
+        <div class="project">
+            <h3>Élaboration d’une Application Mobile - VibeShare</h3>
+            <p><strong>Description:</strong> Développement d'une application de réseau social avec gestion des profils et interactions.</p>
+            <p><strong>Skills Used:</strong> Java, Firebase</p>
+          <!--  <a href="https://github.com/hamza-dridii" target="_blank">GitHub Link</a> -->
+        </div>
 
-  <div class="project">
-    <strong>VibeShare — Application Mobile</strong><br/>
-    Réseau social mobile avec gestion de profils et messagerie instantanée.
-    <br/><em>Java, XML, Firebase</em>
-  </div>
+        <div class="project">
+            <h3>Dashboarding avec Power BI</h3>
+            <p><strong>Description:</strong> Développement d'un tableau de bord interactif pour analyser les ventes et les stocks.</p>
+            <p><strong>Skills Used:</strong> Power BI, phpMyAdmin</p>
+           <!--  <a href="https://github.com/hamza-dridii" target="_blank">GitHub Link</a> -->
+        </div>
 
-  <div class="project">
-    <strong>Dashboarding pour Parad'Ice</strong><br/>
-    Tableau de bord Power BI pour l’analyse des ventes et stocks.
-    <br/><em>Power BI, phpMyAdmin</em>
-  </div>
+        <div class="project">
+            <h3>HeroPower Manager</h3>
+            <p><strong>Description:</strong> Application CRUD pour gérer une base de données de super-héros classés par niveaux de pouvoir.</p>
+            <p><strong>Skills Used:</strong> Angular, Node.js</p>
+           <!--  <a href="https://github.com/hamza-dridii" target="_blank">GitHub Link</a> -->
+        </div>
+    </section>
 
-  <div class="project">
-    <strong>HeroPower Manager</strong><br/>
-    Application CRUD Angular/Node.js pour la gestion de super-héros.
-    <br/><em>Angular, Node.js</em>
-  </div>
-</section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:hamzadridi088@gmail.com">hamzadridi088@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/hamza-dridii" target="_blank">linkedin.com/in/hamza-dridii</a></p>
+      <p>GitHub: <a href="https://github.com/hamza-dridii" target="_blank">github.com/hamza-dridii</a></p> 
+    </section>
 
-<section>
-  <h2>Langues</h2>
-  <div class="langue"><strong>Français :</strong> Courant</div>
-  <div class="langue"><strong>Anglais :</strong> Bon niveau</div>
-</section>
-
-<section>
-  <h2>Contact</h2>
-  <p>Email : <a href="mailto:hamzadridi088@gmail.com">hamzadridi088@gmail.com</a></p>
-  <p>LinkedIn : <a href="https://www.linkedin.com/in/hamza-dridii" target="_blank">linkedin.com/in/hamza-dridii</a></p>
-  <p>GitHub : <a href="https://github.com/hamza-dridii" target="_blank">github.com/hamza-dridii</a></p>
-</section>
-
-<footer>
-  &copy; 2025 Hamza DRIDI. Tous droits réservés.
-</footer>
+    <footer>
+        <p>&copy; 2024 Hamza DRIDI. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
