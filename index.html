@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BI Portfolio - Hamza DRIDI</title>
+    <title>Business Intelligence Portfolio - Hamza DRIDI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* General Reset */
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #4CAF50;
+            --secondary: #1565C0;
+            --dark: #263238;
+            --light: #f8f9fa;
+            --gray: #607D8B;
+            --accent: #FFC107;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -13,140 +24,410 @@
         }
 
         body {
-            font-family: 'Roboto', Arial, sans-serif;
-            line-height: 1.6;
-            background: #f4f4f4;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            background: var(--light);
+            color: var(--dark);
             margin: 0;
         }
 
         /* Header Section */
         header {
-            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px 80px;
             text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: 40px;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 15%;
+            background: var(--light);
+            clip-path: polygon(0 85%, 100% 0, 100% 100%, 0% 100%);
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .profile-badge {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 20px;
+            background: #ddd;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         /* Section Styling */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         section {
-            margin: 20px auto;
-            padding: 20px;
-            max-width: 900px;
+            margin: 30px 0;
+            padding: 40px;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-light), var(--secondary));
         }
 
         section h2 {
             font-size: 1.8rem;
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-            display: inline-block;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-light), var(--secondary));
+        }
+
+        /* About Section */
+        #about p {
+            font-size: 1.1rem;
+            color: var(--dark);
             margin-bottom: 15px;
-            padding-bottom: 5px;
         }
 
         /* Skills Section */
-        #skills ul {
+        #skills {
+            position: relative;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--primary-light);
+        }
+
+        .skill-list {
             list-style: none;
-            padding-left: 0;
         }
 
-        #skills li {
-            margin: 10px 0;
-            font-size: 1rem;
-            color: #555;
+        .skill-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
         }
 
-        #skills li strong {
-            color: #4CAF50;
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
         }
 
         /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
         .project {
-            border-left: 5px solid #4CAF50;
-            margin: 15px 0;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 5px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .project:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
 
-        .project h3 {
-            font-size: 1.4rem;
-            color: #333;
-            margin-bottom: 10px;
+        .project-img {
+            height: 180px;
+            background: var(--gray);
+            position: relative;
+            overflow: hidden;
         }
 
-        .project p {
-            margin-bottom: 8px;
+        .project-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(46,125,50,0.8), rgba(21,101,192,0.8));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .project a {
-            color: #4CAF50;
+        .project:hover .project-img::before {
+            opacity: 0.9;
+        }
+
+        .project-links {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project:hover .project-links {
+            opacity: 1;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 5px;
+            color: var(--primary);
             text-decoration: none;
-            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
-        .project a:hover {
-            text-decoration: underline;
+        .project-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(46,125,50,0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         /* Contact Section */
-        #contact a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: bold;
+        #contact .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        #contact a:hover {
-            text-decoration: underline;
+        .contact-card {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: var(--light);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contact-details h3 {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+
+        .contact-details a, .contact-details p {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary);
         }
 
         /* Footer Styling */
         footer {
             text-align: center;
-            background: #333;
+            background: var(--dark);
             color: white;
-            padding: 15px 0;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        footer p {
+            opacity: 0.8;
             font-size: 0.9rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            header {
+                padding: 50px 20px 70px;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            }
+            
             header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
             }
 
             header p {
                 font-size: 1rem;
             }
 
-            section {
-                padding: 15px;
+            .profile-badge {
+                width: 120px;
+                height: 120px;
             }
 
-            #skills li {
-                font-size: 0.9rem;
-            }
-
-            .project h3 {
-                font-size: 1.2rem;
+            .skills-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -154,69 +435,194 @@
 <body>
 
     <header>
-        <h1>HAMZA DRIDI - My BI Portfolio</h1>
-        <p>DIPLÔMÉ EN INFORMATIQUE DE GESTION - BI</p>
+        <div class="profile-badge">
+            <!-- Placeholder for profile image -->
+            <i class="fas fa-user" style="font-size: 60px; color: #777; line-height: 140px;"></i>
+        </div>
+        <h1>HAMZA DRIDI</h1>
+        <p>Business Intelligence Specialist | Data Analyst | Full Stack Developer</p>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-          Diplômé en Informatique de Gestion spécialité Business Intelligence, je mets à profit mes compétences,
-            mon sérieux et ma curiosité pour relever des défis et innover. Rigoureux et motivé, j’adopte une approche proactive pour apprendre et m’adapter aux exigences professionnelles
-        </p>
-    </section>
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                As a recent graduate in Business Intelligence with a strong foundation in Information Systems Management, 
+                I combine technical expertise with analytical thinking to transform data into actionable insights. 
+                My approach blends curiosity with rigor, allowing me to tackle complex challenges and deliver innovative solutions.
+            </p>
+            <p>
+                Passionate about data visualization and decision support systems, I thrive in environments that require 
+                both technical skills and business acumen. My adaptability and proactive learning mindset enable me to 
+                quickly master new technologies and methodologies.
+            </p>
+        </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Programmation:</strong> Python, C, Java</li>
-            <li><strong>Développement web:</strong> HTML, CSS, Bootstrap, JS, PHP, Node.js, ReactJS , Angular, MongoDB</li>
-         <!--    <li><strong>ETL Tools:</strong> Talend, SSIS</li> -->
-            <li><strong>Manipulation des données:</strong> Visualisation, Intégration et Transformation des données, Pandas, Web Scraping</li>
-            <li><strong>Gestion de projet:</strong> Agile, Planification, Analyse des risques</li>
-        </ul>
-    </section>
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul class="skill-list">
+                        <li>Python (Pandas, NumPy, Matplotlib)</li>
+                        <li>Java</li>
+                        <li>C</li>
+                        <li>JavaScript (ES6+)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data & BI</h3>
+                    <ul class="skill-list">
+                        <li>Power BI & Tableau</li>
+                        <li>SQL (MySQL, SQL Server)</li>
+                        <li>ETL Processes</li>
+                        <li>Data Warehousing</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> Web Development</h3>
+                    <ul class="skill-list">
+                        <li>HTML5, CSS3, JavaScript</li>
+                        <li>React & Angular</li>
+                        <li>Node.js, Express</li>
+                        <li>PHP, Laravel</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tasks"></i> Other Skills</h3>
+                    <ul class="skill-list">
+                        <li>Agile Methodologies</li>
+                        <li>Project Management</li>
+                        <li>Data Analysis</li>
+                        <li>Web Scraping</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <div class="project-img">
+                        <div class="project-links">
+                            <a href="#" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Travel Agency Booking System</h3>
+                        <p>A comprehensive web application for managing travel bookings, customer data, and reservations with real-time availability checks.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <div class="project-links">
+                            <a href="#" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>VibeShare Social Network</h3>
+                        <p>Mobile social networking application with user profiles, content sharing, and real-time interactions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Android SDK</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <div class="project-links">
+                            <a href="#" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sales Analytics Dashboard</h3>
+                        <p>Interactive Power BI dashboard providing insights into sales performance, inventory levels, and customer behavior.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">DAX</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-img">
+                        <div class="project-links">
+                            <a href="#" title="View Code"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>HeroPower Manager</h3>
+                        <p>Full-stack application for managing a database of superheroes with CRUD operations and power level comparisons.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="project">
-            <h3>Conception et Développement d'une Application Web</h3>
-            <p><strong>Description:</strong> Développement d'une application web de gestion des réservations d'agence de voyages.</p>
-            <p><strong>Skills Used:</strong> PHP, JavaScript, HTML, CSS, MySQL</p>
-           <!--  <a href="https://github.com/hamza-dridii/hamza_dridii.git" target="_blank">View Project</a> -->
-        </div>
-
-        <div class="project">
-            <h3>Élaboration d’une Application Mobile - VibeShare</h3>
-            <p><strong>Description:</strong> Développement d'une application de réseau social avec gestion des profils et interactions.</p>
-            <p><strong>Skills Used:</strong> Java, Firebase</p>
-          <!--  <a href="https://github.com/hamza-dridii" target="_blank">GitHub Link</a> -->
-        </div>
-
-        <div class="project">
-            <h3>Dashboarding avec Power BI</h3>
-            <p><strong>Description:</strong> Développement d'un tableau de bord interactif pour analyser les ventes et les stocks.</p>
-            <p><strong>Skills Used:</strong> Power BI, phpMyAdmin</p>
-           <!--  <a href="https://github.com/hamza-dridii" target="_blank">GitHub Link</a> -->
-        </div>
-
-        <div class="project">
-            <h3>HeroPower Manager</h3>
-            <p><strong>Description:</strong> Application CRUD pour gérer une base de données de super-héros classés par niveaux de pouvoir.</p>
-            <p><strong>Skills Used:</strong> Angular, Node.js</p>
-           <!--  <a href="https://github.com/hamza-dridii" target="_blank">GitHub Link</a> -->
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:hamzadridi088@gmail.com">hamzadridi088@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/hamza-dridii" target="_blank">linkedin.com/in/hamza-dridii</a></p>
-      <p>GitHub: <a href="https://github.com/hamza-dridii" target="_blank">github.com/hamza-dridii</a></p> 
-    </section>
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:hamzadridi088@gmail.com">hamzadridi088@gmail.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/hamza-dridii" target="_blank">linkedin.com/in/hamza-dridii</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/hamza-dridii" target="_blank">github.com/hamza-dridii</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/hamza-dridii" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/hamza-dridii" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:hamzadridi088@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
         <p>&copy; 2024 Hamza DRIDI. All Rights Reserved.</p>
     </footer>
 
